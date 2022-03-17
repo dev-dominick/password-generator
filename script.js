@@ -13,6 +13,11 @@ var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // Var of Special characters
 var character = ["!", '"', "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "`", "{", "|", "}", "~" ];
 
+
+
+//generatepass gets stored in password 
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -25,6 +30,18 @@ function writePassword() {
 // Added an event of listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+function generatePassword() {
+  var finalPassword = "hello";
+
+
+
+  return finalPassword;
+}
+
+
+
+
+
 function generatePassword() { 
   var userPassword = Math.ceil(
     prompt("Choose a password length between 8 and 128 characters.")
@@ -35,19 +52,27 @@ function generatePassword() {
     prompt("Please input a number between 8 and 128 in this field.")
   }
 
-  else if (isNan(userPassword)) {
-    prompt("please input a number between 8 and 128 in this field")
+  else {
+    generatePassword()
+
+    return;
   }
   
 //todo ask about syntax and repeat nan prompts
 
   //why did the syntax require a curly before the declaration
 
-  else {
-    isNan(userPassword);
-    prompt("Please input a number between 8 and 128 in this field.");
-  }
+  
 
+
+  if (userPassword >= 8 && userPassword <=128) {
+    console.log(userPass);
+    
+  } else {
+    prompt("Password need to be between 8 and 128 character.");
+    
+    return;
+  }
  
 //Condition if user inputs password length less than 8 characters.
   if (userPassword < 8) {
@@ -77,3 +102,6 @@ function generatePassword() {
 
 }
 
+
+
+//
