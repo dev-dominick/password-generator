@@ -13,9 +13,8 @@ var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 // Var of Special characters
 var character = ["!", '"', "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "`", "{", "|", "}", "~"];
 
-//set state
-let inRange = false
 
+var passCharArr = []
 
 
 //generatepass gets stored in password 
@@ -94,15 +93,32 @@ function generatePassword() {
 
   var passUpper = confirm("Press OK if you want to include capital letters.")
   console.log(passUpper);
+  
+  if (passUpper) {
+    passCharArr.concat(lettersUpper)
+  }
+
 
   var passLower = confirm("Press OK if you want to include lower case letters.");
   console.log(passLower);
 
+  if (passLower) {
+    passCharArr.concat(lettersLower)
+  }
+
   var passNumber = confirm("Press OK if you want to include numbers.");
   console.log(passNumber);
 
+  if (passNumber) {
+    passCharArr.concat(numbers)
+  }
+
   var passCharacter = confirm("Press OK if you want to include special characters.");
   console.log(passCharacter);
+
+  if (passCharacter) {
+    passCharArr.concat(character)
+  }
 
 
   if (passUpper === false && passLower === false && passNumber === false && passCharacter === false) {
@@ -112,15 +128,12 @@ function generatePassword() {
 
   return userPassword;
 
+    for (var i = 0; i < userPass.length; i++) {
+    
+    userPass.push(passCharArr[Math.floor(Math.random() * passCharArr)])
+    
+  }
 
-
-
-
-
-
-
-
-  
 }
 
 
