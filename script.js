@@ -31,15 +31,49 @@ function generatePassword() {
   ); 
   console.log(userPassword);
 
+  if (isNaN(userPassword)) {
+    prompt("Please input a number between 8 and 128 in this field.")
+  }
+
+  else if (isNan(userPassword)) {
+    prompt("please input a number between 8 and 128 in this field")
+  }
+  
+//todo ask about syntax and repeat nan prompts
+
+  //why did the syntax require a curly before the declaration
+
+  else {
+    isNan(userPassword);
+    prompt("Please input a number between 8 and 128 in this field.");
+  }
+
+ 
+//Condition if user inputs password length less than 8 characters.
   if (userPassword < 8) {
     prompt("Password needs to be at least 8 characters. Please select a password length between 8 and 128 characters.")
-  };
-  
-  if (userPassword > 128) {
-    prompt(
-      "Password needs to be less than 128 characters. Please select a password length between 8 and 128 characters."
-    );
   }
+// Condition if user inputs password length more than 128 characters.
+  if (userPassword > 128) {
+    prompt("Password needs to be less than 128 characters. Please select a password length between 8 and 128 characters.")
+  }
+    var passUpper = confirm("Press OK if you want to include capital letters.")
+        console.log(passUpper);
+    
+    var passLower = confirm("Press OK if you want to include lower case letters.");
+        console.log(passLower);
+
+    var passNumber = confirm("Press OK if you want to include numbers.");
+        console.log(passNumber);
+
+    var passCharacter = confirm("Press OK if you want to include special characters.");
+        console.log(passCharacter);
+  
+  if (passUpper === false && passLower === false && passNumber === false && passCharacter === false) {
+    alert("You must select yes to at least one of the conditions")
+  }
+  
+  
 
 }
 
