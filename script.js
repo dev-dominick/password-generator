@@ -16,159 +16,110 @@ var character = ["!", '"', "#", "$", "%", "&", "(", ")", "*", "+", ",", "-", "."
 
 var passCharArr = []
 
-
-//generatepass gets stored in password 
-
-
-
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// };
-
-// Added an event of listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-
-// function generatePassword() {
-//   var tempPassword = [];
-
-//   //to get random 
-
-
-
-
-
-//   // Math.random() * userPass.length
-
-
-  
-
-
-
-//   return finalPassword;
-// }
-
-
-// var specialCharChoice = window.confirm(
-//   "Do you want special characters in your password"
-// )
-
-
-
-
-
-
-function generatePassword() {
-  var userPassword = Math.ceil(
-    prompt("Choose a password length between 8 and 128 characters."))
-  // console.log(userPassword);
-
-
-  if (isNaN(userPassword)) {
-    prompt("Please input a number between 8 and 128 in this field.")
-    generatePassword();
-
-  }
-
-  // if (userPassword >= 8 && userPassword <= 128) {
-  //     generatePassword();
-  // } 
-
-
-  // Condition if user inputs password length less than 8 characters.
-  if (userPassword < 8 || userPassword > 128) {
-    confirm(
-      "Password needs to be at least 8 characters and no more than 128."
-    );
-    return;
-  }
-  // // Condition if user inputs password length more than 128 characters.
-  if (userPassword > 8 || userPassword < 128) {
-    console.log(userPassword);
-  }
-
-  var finalPassword = "";
-
-  var passUpper = confirm("Press OK if you want to include capital letters.")
-  console.log(passUpper);
-  
-  if (passUpper === true) {
-    var upperRandom = Math.floor(Math.random() * lettersUpper.length);
-    var letterUpper = lettersUpper[upperRandom];
-    finalPassword += letterUpper;
-    passCharArr = passCharArr.concat(lettersUpper)
-    console.log(finalPassword);
-  }
-
-
-  var passLower = confirm("Press OK if you want to include lower case letters.");
-  console.log(passLower);
-
-  if (passLower === true) {
-    var lowerRandom = Math.floor(Math.random() * lettersLower.length);
-    var letterLower = lettersLower[lowerRandom];
-    finalPassword += letterLower;
-    passCharArr = passCharArr.concat(lettersLower);
-    console.log(finalPassword);
-  }
-
-
-  var passNumber = confirm("Press OK if you want to include numbers.");
-  console.log(passNumber);
-
-  if (passNumber === true) {
-    var numRandom = Math.floor(Math.random() * numbers.length);
-    var letterNumber = numbers[numRandom];
-    finalPassword += letterNumber;
-    passCharArr = passCharArr.concat(numbers);
-    console.log(finalPassword);
-  }
-
-
-  var passCharacter = confirm("Press OK if you want to include special characters.");
-  console.log(passCharacter);
-
-  if (passNumber === true) {
-    var charRandom = Math.floor(Math.random() * character.length);
-    var letterCharacter = character[charRandom];
-    finalPassword += letterCharacter;
-    passCharArr = passCharArr.concat(character);
-      console.log(finalPassword);
-  }
-  
-
-
-  if (passUpper === false && passLower === false && passNumber === false && passCharacter === false) {
-    alert("You must select yes to at least one of the conditions")
-    generatePassword()
-  }
-
-  // return userPassword;
-
-    for (let i = finalPassword.length; i < userPassword.length; i++) {
-      var finalRandom = Math.floor(Math.random() * passCharArr.length);
-      var imDone = passCharArr[finalRandom];
-
-      
-    }
-     finalPassword += imDone;
-   
-
-      return imDone; 
-}
-
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
-};
+  passCharArr = [];
+}
 
 generateBtn.addEventListener("click", writePassword);
+
+
+function generatePassword() {
+  var password = "";
+
+  var userPassword = Math.ceil(
+    prompt("Choose a password length between 8 and 128 characters.")
+  );
+  // console.log(userPassword);
+
+  if (isNaN(userPassword)) {
+    prompt("Please input a number between 8 and 128 in this field.");
+    generatePassword();
+  }
+
+  // condition if user picks a number outside of conditions
+  if (userPassword < 8 || userPassword > 128) {
+    confirm("Password needs to be at least 8 characters and no more than 128.");
+    return;
+  }
+  // condition if user picks a number within of conditions
+  if (userPassword > 8 || userPassword < 128) {
+    console.log(userPassword);
+  }
+
+  //condition if user wants to use capital letters
+  var passUpper = confirm("Press OK if you want to include capital letters.");
+  console.log(passUpper);
+
+  //logic behind capital letters
+  if (passUpper === true) {
+    var upperRandom = Math.floor(Math.random() * lettersUpper.length);
+    var letterUpper = lettersUpper[upperRandom];
+    password += letterUpper;
+    passCharArr = passCharArr.concat(lettersUpper);
+    console.log(password);
+  }
+  //condition if user wants to use lowercase letters
+  var passLower = confirm(
+    "Press OK if you want to include lower case letters."
+  );
+  console.log(passLower);
+
+  //logic behind lowercase letters
+  if (passLower === true) {
+    var lowerRandom = Math.floor(Math.random() * lettersLower.length);
+    var letterLower = lettersLower[lowerRandom];
+    password += letterLower;
+    passCharArr = passCharArr.concat(lettersLower);
+    console.log(password);
+  }
+  //condition if user wants to use numbers
+  var passNumber = confirm("Press OK if you want to include numbers.");
+  console.log(passNumber);
+
+  //logic behind using numbers
+  if (passNumber === true) {
+    var numRandom = Math.floor(Math.random() * numbers.length);
+    var letterNumber = numbers[numRandom];
+    password += letterNumber;
+    passCharArr = passCharArr.concat(numbers);
+    console.log(password);
+  }
+  //condition if user wants to use special characters
+  var passCharacter = confirm(
+    "Press OK if you want to include special characters."
+  );
+  console.log(passCharacter);
+
+  //logic behind using special characters
+  if (passNumber === true) {
+    var charRandom = Math.floor(Math.random() * character.length);
+    var letterCharacter = character[charRandom];
+    password += letterCharacter;
+    passCharArr = passCharArr.concat(character);
+    console.log(password);
+  }
+
+  //condition if user does not select any conditions
+  if (
+    passUpper === false &&
+    passLower === false &&
+    passNumber === false &&
+    passCharacter === false
+  ) {
+    alert("You must select yes to at least one of the conditions");
+    generatePassword();
+  } else {
+    for (let i = 0; i < userPassword; i++)
+      password = password.concat(
+        passCharArr[Math.floor(Math.random() * passCharArr.length)]
+      );
+  }
+
+  return password;
+}
 
 
