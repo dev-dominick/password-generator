@@ -22,16 +22,16 @@ var passCharArr = []
 
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+//   passwordText.value = password;
 
-};
+// };
 
 // Added an event of listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
 
 // function generatePassword() {
 //   var tempPassword = [];
@@ -45,7 +45,7 @@ generateBtn.addEventListener("click", writePassword);
 //   // Math.random() * userPass.length
 
 
-//   var finalPassword = "";
+  
 
 
 
@@ -65,7 +65,7 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   var userPassword = Math.ceil(
     prompt("Choose a password length between 8 and 128 characters."))
-  console.log(userPassword);
+  // console.log(userPassword);
 
 
   if (isNaN(userPassword)) {
@@ -91,34 +91,55 @@ function generatePassword() {
     console.log(userPassword);
   }
 
+  var finalPassword = "";
+
   var passUpper = confirm("Press OK if you want to include capital letters.")
   console.log(passUpper);
   
-  if (passUpper) {
-    passCharArr.concat(lettersUpper)
+  if (passUpper === true) {
+    var upperRandom = Math.floor(Math.random() * lettersUpper.length);
+    var letterUpper = lettersUpper[upperRandom];
+    finalPassword += letterUpper;
+    passCharArr = passCharArr.concat(lettersUpper)
+    console.log(finalPassword);
   }
 
 
   var passLower = confirm("Press OK if you want to include lower case letters.");
   console.log(passLower);
 
-  if (passLower) {
-    passCharArr.concat(lettersLower)
+  if (passLower === true) {
+    var lowerRandom = Math.floor(Math.random() * lettersLower.length);
+    var letterLower = lettersLower[lowerRandom];
+    finalPassword += letterLower;
+    passCharArr = passCharArr.concat(lettersLower);
+    console.log(finalPassword);
   }
+
 
   var passNumber = confirm("Press OK if you want to include numbers.");
   console.log(passNumber);
 
-  if (passNumber) {
-    passCharArr.concat(numbers)
+  if (passNumber === true) {
+    var numRandom = Math.floor(Math.random() * numbers.length);
+    var letterNumber = numbers[numRandom];
+    finalPassword += letterNumber;
+    passCharArr = passCharArr.concat(numbers);
+    console.log(finalPassword);
   }
+
 
   var passCharacter = confirm("Press OK if you want to include special characters.");
   console.log(passCharacter);
 
-  if (passCharacter) {
-    passCharArr.concat(character)
+  if (passNumber === true) {
+    var charRandom = Math.floor(Math.random() * character.length);
+    var letterCharacter = character[charRandom];
+    finalPassword += letterCharacter;
+    passCharArr = passCharArr.concat(character);
+      console.log(finalPassword);
   }
+  
 
 
   if (passUpper === false && passLower === false && passNumber === false && passCharacter === false) {
@@ -126,16 +147,28 @@ function generatePassword() {
     generatePassword()
   }
 
-  return userPassword;
+  // return userPassword;
 
-    for (var i = 0; i < userPass.length; i++) {
-    
-    userPass.push(passCharArr[Math.floor(Math.random() * passCharArr)])
-    
-  }
+    for (let i = finalPassword.length; i < userPassword.length; i++) {
+      var finalRandom = Math.floor(Math.random() * passCharArr.length);
+      var imDone = passCharArr[finalRandom];
 
+      
+    }
+     finalPassword += imDone;
+   
+
+      return imDone; 
 }
 
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
+  passwordText.value = password;
+
+};
+
+generateBtn.addEventListener("click", writePassword);
 
 
