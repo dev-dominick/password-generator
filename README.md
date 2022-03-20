@@ -34,7 +34,7 @@ Either clone repo or click on hosted github pages link.
 
 https://dev-dominick.github.io/password-generator/
 
-[alt text](./img/password-generator.pngimg/screenshot.png)
+![alt text](./img/password-generator.png)
 
 ## Credits
 
