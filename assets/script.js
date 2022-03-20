@@ -95,7 +95,7 @@ function generatePassword() {
   console.log(passCharacter);
 
   //logic behind using special characters
-  if (passNumber === true) {
+  if (passCharacter === true) {
     var charRandom = Math.floor(Math.random() * character.length);
     var letterCharacter = character[charRandom];
     password += letterCharacter;
