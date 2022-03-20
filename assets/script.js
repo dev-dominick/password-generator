@@ -56,9 +56,7 @@ function generatePassword() {
 
   //logic behind capital letters
   if (passUpper === true) {
-    var upperRandom = Math.floor(Math.random() * lettersUpper.length);
-    var letterUpper = lettersUpper[upperRandom];
-    password += letterUpper;
+    
     passCharArr = passCharArr.concat(lettersUpper);
     console.log(password);
   }
@@ -70,9 +68,7 @@ function generatePassword() {
 
   //logic behind lowercase letters
   if (passLower === true) {
-    var lowerRandom = Math.floor(Math.random() * lettersLower.length);
-    var letterLower = lettersLower[lowerRandom];
-    password += letterLower;
+  
     passCharArr = passCharArr.concat(lettersLower);
     console.log(password);
   }
@@ -82,9 +78,7 @@ function generatePassword() {
 
   //logic behind using numbers
   if (passNumber === true) {
-    var numRandom = Math.floor(Math.random() * numbers.length);
-    var letterNumber = numbers[numRandom];
-    password += letterNumber;
+    
     passCharArr = passCharArr.concat(numbers);
     console.log(password);
   }
@@ -96,9 +90,7 @@ function generatePassword() {
 
   //logic behind using special characters
   if (passCharacter === true) {
-    var charRandom = Math.floor(Math.random() * character.length);
-    var letterCharacter = character[charRandom];
-    password += letterCharacter;
+    
     passCharArr = passCharArr.concat(character);
     console.log(password);
   }
